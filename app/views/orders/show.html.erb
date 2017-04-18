@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Emailaddress:</strong>
+  <%= @order.emailaddress %>
+</p>
+
+<p>
+  <strong>Cellphonenumber:</strong>
+  <%= @order.cellphonenumber %>
+</p>
+
+<p>
+  <strong>Cellphonecarrier:</strong>
+  <%= @order.cellphonecarrier %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
