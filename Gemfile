@@ -1,3 +1,4 @@
+source 'http://code.stripe.com'
 source 'https://rubygems.org'
 
 ruby '2.2.6'
@@ -35,6 +36,7 @@ gem "fog-aws"
 gem "figaro"
 gem "mini_magick"
 gem 'devise'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :production do
   gem 'pg'
