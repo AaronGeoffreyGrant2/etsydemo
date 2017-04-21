@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
         format.html { redirect_to root_url, notice: "Thanks for ordering!" } 
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
