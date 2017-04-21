@@ -6,7 +6,7 @@ GIT
       faraday (~> 0.9)
 
 GEM
-  remote: http://code.stripe.com/
+  remote: https://code.stripe.com/
   remote: https://rubygems.org/
   specs:
     actioncable (5.0.2)
