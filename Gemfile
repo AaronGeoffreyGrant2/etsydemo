@@ -37,6 +37,7 @@ gem "figaro"
 gem "mini_magick"
 gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'carrierwave-base64'
 
 group :production do
   gem 'pg'
