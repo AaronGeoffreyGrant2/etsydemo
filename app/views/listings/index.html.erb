@@ -4,6 +4,18 @@
   <h2>The only thing that you have to do is just signup and upload your images!</h2>
 </div>
 
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @listings %>
+    </div>
+    <%= will_paginate @listings, :container => false %>
+  </div>
+
+<%= form_tag listings_path, method: :get do %>
+  <%= text_field_tag :name, "" %>
+  <%= submit_tag 'Click Here to Search and Click Again to View All Listings' %>
+<% end %>
+
 <div class="center">
   <div class="row">
     <% @listings.each do |listing| %>

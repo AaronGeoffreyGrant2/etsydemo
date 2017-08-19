@@ -38,6 +38,7 @@ gem "mini_magick"
 gem 'devise'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'carrierwave-base64'
+gem 'will_paginate', '~> 3.1.0'
 
 group :production do
   gem 'pg'
