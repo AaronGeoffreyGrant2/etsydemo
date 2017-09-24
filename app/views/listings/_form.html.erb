@@ -33,10 +33,30 @@
 
   <%= f.hidden_field :image %>
 
+  <% if current_user.acct.blank? %>
+    <br>
+    <h1>Bank Account Information</h1>
 
-  <html>
-<head>
-<title>Sketchpad</title>
+    <div class="form-group">
+      <%= label_tag :country %>
+      <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :routing_number %>
+      <%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" } %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :account_number %>
+      <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit :id => 'create-drawing' %>
+  </div>
+<% end %>
+
+<h1>Draw You Game Image Inside Of The Square</h1>
 
 <script type="text/javascript">
     // Variables for referencing the canvas and 2dcanvas context
@@ -178,7 +198,6 @@
     position:relative; /* Necessary for correct mouse co-ords in Firefox */
 }
 </style>
-</head>
 
 <body onload="init()">
     <div id="sketchpadapp">
@@ -198,28 +217,3 @@
             </canvas>
         </div>
     </div>
-</body>
-</html>
-
-  <% if current_user.recipient.blank? %>
-    <br>
-    <h1>Bank Account Information</h1>
-
-    <div class="form-group">
-      <%= label_tag :country %>
-      <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :routing_number %>
-      <%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" } %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :account_number %>
-      <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.submit :id => 'create-drawing' %>
-  </div>
-<% end %>
