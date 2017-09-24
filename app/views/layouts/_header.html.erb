@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">MyApp(VersionOne)</a>
+      <a class="navbar-brand" href="/">Click Here To Buy Game Artwork</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,6 +33,13 @@
             <li><%= link_to "Purchase History", purchases_path %></li>
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make A Game<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Make A Dodge Obstacal Game", obstacledodgergames_path %></li>
           </ul>
         </li>
       <% else %>

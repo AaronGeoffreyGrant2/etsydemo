@@ -1,0 +1,2 @@
+class Obstacledodgergame < ApplicationRecord
+end
