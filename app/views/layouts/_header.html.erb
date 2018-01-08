@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Click Here To Buy Game Artwork</a>
+      <a class="navbar-brand" href="/">MyApp(VersionOne)</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -31,22 +31,25 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Purchase History", purchases_path %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make A Game<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Make A Dodge Obstacal Game", obstacledodgergames_path %></li>
-          </ul>
-        </li>
-      <% else %>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<% if current_user %>
+  Number of friends that you have on Facebook: <%= current_user.friends_count %>
+<% end %>
+
+<% if current_user %>
+  <div>Hello <%= current_user.name %></div>
+  <%= image_tag(current_user.image) %>
+<% end %>
+
+<% unless current_user %>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% else %>
+  <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+<% end %>

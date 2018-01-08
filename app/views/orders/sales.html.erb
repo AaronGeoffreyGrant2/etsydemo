@@ -9,9 +9,6 @@
     <th class="center">Price</th>
     <th class="center">Customer</th>
     <th class="center">Date Sold</th>
-    <th class="center">Email Address</th>
-    <th class="center">Questions and Comments</th>
-    <th class="center">Requests</th>
   </tr>
 
   <% @orders.each do |order| %>
@@ -21,9 +18,6 @@
       <td class="center"><%= number_to_currency(order.listing.price) %></td>
       <td class="center"><%= order.buyer.name %></td>
       <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
-      <td class="center"><%= order.emailaddress %></td>
-      <td class="center"><%= order.comments %></td>
-      <td class="center"><%= order.requests %></td>
     </tr>
   <% end %>
 </table>
@@ -31,5 +25,5 @@
 <br>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { turbolinks: false } %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true } %>
 <% end %>

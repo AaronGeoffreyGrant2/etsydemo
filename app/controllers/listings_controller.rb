@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order("created_at DESC").search(params).paginate(:page => params[:page], :per_page => 2)
+    @listings = Listing.all.order("created_at DESC")
   end
 
   # GET /listings/1
@@ -34,25 +34,27 @@ class ListingsController < ApplicationController
     @listing.user_id = current_user.id
 
     if current_user.recipient.blank?
+
       Stripe.api_key = ENV["STRIPE_API_KEY"]
       token = params[:stripeToken]
 
       recipient = Stripe::Account.create(
-        :type => 'custom',
-        :country => 'US', 
-        :email => current_user.email
+        :managed => false,
+        :country => 'US',
+        :email => current_user.email 
         )
-
-      current_user.recipient = recipient.id
-      current_user.save
     end
 
+    current_user.recipient = recipient.id
+    current_user.save
+
     respond_to do |format|
+      
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @listing }
+        format.json { render :show, status: :created, location: @listing }
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
@@ -64,9 +66,9 @@ class ListingsController < ApplicationController
     respond_to do |format|
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :show, status: :ok, location: @listing }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
@@ -77,7 +79,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url }
+      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -90,7 +92,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :image)
+      params.require(:listing).permit(:name, :description, :price, :image, :post_on_facebook)
     end
 
     def check_user
