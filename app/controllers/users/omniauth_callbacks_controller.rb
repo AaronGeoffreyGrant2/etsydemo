@@ -1,17 +1,37 @@
+
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    service = Service.where(provider: auth.provider, uid: auth.uid).first
 
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+    # Look up existing user with this facebook account
+    if service.present?
+      user = service.user
+      service.update(
+        expires_at: Time.at(auth.credentials.expires_at),
+        access_token: auth.credentials.token,
+      )
+
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      user = User.create(
+        email: auth.info.email,
+        name: auth.info.name,
+        password: Devise.friendly_token[0,20]
+      )
+
+      user.services.create(
+        provider: auth.provider,
+        uid: auth.uid,
+        expires_at: Time.at(auth.credentials.expires_at),
+        access_token: auth.credentials.token,
+      )
+
     end
+
+    sign_in_and_redirect user, event: :authentication
+    set_flash_message :notice, :success, kind: "Facebook"
   end
 
-  def failure
-    redirect_to root_path
+  def auth
+    request.env['omniauth.auth']
   end
 end

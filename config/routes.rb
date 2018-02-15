@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :obstacledodgergames
-  devise_for :users
+  resources :platformgames
+  resources :tictactoegames
+  resources :spaceshootergames
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :listings do
-  	resources :orders, only: [:new, :create]
+    resources :orders, only: [:new, :create]
   end
 
   

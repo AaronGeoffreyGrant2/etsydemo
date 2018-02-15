@@ -1,0 +1,33 @@
+<%= form_for(tictactoegame) do |f| %>
+  <% if tictactoegame.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tictactoegame.errors.count, "error") %> prohibited this tictactoegame from being saved:</h2>
+
+      <ul>
+      <% tictactoegame.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :xs %>
+     <%= collection_select(:tictactoegame, :xs, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :os %>
+     <%= collection_select(:tictactoegame, :os, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

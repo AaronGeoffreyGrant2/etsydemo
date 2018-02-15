@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925181522) do
+ActiveRecord::Schema.define(version: 20180214163106) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "name"
@@ -26,21 +26,62 @@ ActiveRecord::Schema.define(version: 20170925181522) do
     t.integer  "user_id"
   end
 
-  create_table "obstacledodgergames", force: :cascade do |t|
-    t.string   "dodgerimage"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "orders", force: :cascade do |t|
     t.string   "emailaddress"
-    t.string   "comments"
-    t.string   "requests"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "cellphonenumber"
+    t.string   "cellphonecarrier"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "listing_id"
     t.integer  "buyer_id"
     t.integer  "seller_id"
+  end
+
+  create_table "platformgames", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "player"
+    t.string   "playerdies"
+    t.string   "playerbeatslevel"
+    t.string   "coin"
+    t.string   "lava"
+    t.string   "enemy"
+    t.string   "levelplatform"
+    t.string   "levelbackground"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_platformgames_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
+    t.string   "access_token_secret"
+    t.string   "refresh_token"
+    t.datetime "expires_at"
+    t.text     "auth"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
+  end
+
+  create_table "spaceshootergames", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "ship"
+    t.string   "enemy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spaceshootergames_on_user_id"
+  end
+
+  create_table "tictactoegames", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "xs"
+    t.string   "os"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tictactoegames_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

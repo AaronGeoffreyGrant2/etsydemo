@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Platformgames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Player</th>
+      <th>Playerdies</th>
+      <th>Playerbeatslevel</th>
+      <th>Coin</th>
+      <th>Lava</th>
+      <th>Enemy</th>
+      <th>Levelplatform</th>
+      <th>Levelbackground</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @platformgames.each do |platformgame| %>
+      <tr>
+        <td><%= platformgame.user %></td>
+        <td><%= platformgame.player %></td>
+        <td><%= platformgame.playerdies %></td>
+        <td><%= platformgame.playerbeatslevel %></td>
+        <td><%= platformgame.coin %></td>
+        <td><%= platformgame.lava %></td>
+        <td><%= platformgame.enemy %></td>
+        <td><%= platformgame.levelplatform %></td>
+        <td><%= platformgame.levelbackground %></td>
+        <td><%= link_to 'Show', platformgame %></td>
+        <td><%= link_to 'Edit', edit_platformgame_path(platformgame) %></td>
+        <td><%= link_to 'Destroy', platformgame, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Platformgame', new_platformgame_path %>

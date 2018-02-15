@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= render 'spaceshootergame' %>
+  <%= @spaceshootergame.user %>
+</p>
+
+<p>
+  <strong>Ship:</strong>
+  <%= @spaceshootergame.ship %>
+</p>
+
+<p>
+  <strong>Enemy:</strong>
+  <%= @spaceshootergame.enemy %>
+</p>
+
+<%= link_to 'Edit', edit_spaceshootergame_path(@spaceshootergame) %> |
+<%= link_to 'Back', spaceshootergames_path %>

@@ -36,11 +36,11 @@ gem "fog-aws"
 gem "figaro"
 gem "mini_magick"
 gem 'devise'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
-gem 'omniauth-facebook'
-gem "koala"
+gem 'stripe', :git => 'http://github.com/stripe/stripe-ruby'
 gem 'carrierwave-base64'
 gem 'will_paginate', '~> 3.1.0'
+gem 'omniauth-facebook'
+gem 'koala'
 
 group :production do
   gem 'pg'
