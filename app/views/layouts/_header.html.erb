@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">MyApp(VersionOne)</a>
+      <a class="navbar-brand" href="/">Click Here To Buy Graphics</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,15 +20,16 @@
       <ul class="nav navbar-nav navbar-right">
        <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller Account <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit Your Graphics And See Your List of Bought And Sold Graphics. <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Edit/Delete Your Work", seller_path %></li>
             <li><%= link_to "Sales History", sales_path %></li>
+            <li><%= link_to "Purchase History", purchases_path %></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make A Game<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make A Game <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Make A Tic Tac Toe Game", tictactoegames_path %></li>
             <li><%= link_to "Make A Space Shooter Game", spaceshootergames_path %></li>
@@ -37,9 +38,8 @@
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Out Of Your <%= current_user.name %> Account.<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Purchase History", purchases_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
