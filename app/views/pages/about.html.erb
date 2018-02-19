@@ -1,6 +1,7 @@
-
-<h1>Welcome to my online video game character marketplace!</h1>
-<p>Where you can design you own video game characters and sell them!</p>
+<% if user_signed_in? %>
+<h1>This is your Facebook Info!</h1>
+<p>Click on either Next or Previous to change pages.</p>
+<% end %>
 
 <% if @results.any? %>
   <% @results.each do |result| %>

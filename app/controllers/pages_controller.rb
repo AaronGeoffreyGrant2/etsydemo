@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-   def about
+  before_action :authenticate_user!, only: :about
+
+  def about
     facebook = current_user.services.facebook.last
     if facebook.present?
       @graph = facebook.client
