@@ -13,10 +13,18 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Click Here View Your Facebook Info", pages_about_path %></li>
-        <li><%= link_to "Contact", pages_contact_path %></li>
-      </ul>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Your Facebook Info <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "See Your Facebook Posts", pages_about_path %></li>
+            <li><%= link_to "My Contact Info", pages_contact_path %></li>
+            <li><%= link_to "My Privacy-Policy Docx", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-docx-english.docx" %></li>
+            <li><%= link_to "My Privacy-Policy PDF", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-pdf-english.pdf" %></li>
+            <li><%= link_to "My Privacy-Policy Txt", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-text-english.txt" %></li>
+          </ul>
+        </li>
+
       <ul class="nav navbar-nav navbar-right">
        <% if user_signed_in? %>
         <li class="dropdown">
