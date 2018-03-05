@@ -1,5 +1,6 @@
 class TictactoegamesController < ApplicationController
   before_action :set_tictactoegame, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:index, :show, :new, :edit, :create, :edit, :update, :destroy]
 
   # GET /tictactoegames
   # GET /tictactoegames.json

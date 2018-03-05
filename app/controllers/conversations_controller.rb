@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_filter :authenticate_user!, only: [:index, :inbox, :sent, :trash, :show, :new, :create]
   def index
     @conversations = current_user.mailbox.conversations
   end

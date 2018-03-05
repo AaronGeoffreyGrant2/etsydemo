@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_conversation
+  before_filter :authenticate_user!, only: [:create]
 
   def create
     current_user.reply_to_conversation(

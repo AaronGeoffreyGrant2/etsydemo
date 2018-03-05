@@ -1,5 +1,6 @@
 class PlatformgamesController < ApplicationController
   before_action :set_platformgame, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:index, :show, :new, :edit, :create, :edit, :update, :destroy]
 
   # GET /platformgames
   # GET /platformgames.json
