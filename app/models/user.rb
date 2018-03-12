@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def mailboxer_email(object)
     nil
   end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(access_token)
+  end
 end

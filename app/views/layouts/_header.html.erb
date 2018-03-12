@@ -75,3 +75,8 @@
   </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<% if current_user %>
+  <div>Hello <%= current_user.name %></div>
+  <%= image_tag(current_user.image) %>
+<% end %>

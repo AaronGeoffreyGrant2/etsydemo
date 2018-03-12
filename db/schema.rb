@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305023639) do
+ActiveRecord::Schema.define(version: 20180312011500) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180305023639) do
     t.datetime "image_updated_at"
     t.string   "image"
     t.integer  "user_id"
+    t.boolean  "post_to_facebook"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -153,6 +154,8 @@ ActiveRecord::Schema.define(version: 20180305023639) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "recipient"
+    t.string   "access_token"
+    t.text     "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
