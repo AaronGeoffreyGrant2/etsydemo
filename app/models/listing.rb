@@ -1,4 +1,5 @@
-class Listing < ActiveRecord::Base 
+class Listing < ActiveRecord::Base
+	after_create :to_facebook  
 	mount_base64_uploader :image, ImageUploader
 	validates :name, :description, :price, presence: true
 	validates :price, numericality: { greater_than: 0 }
