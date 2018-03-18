@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
-  def about
+  def dodegobstaclegamedemo
   end
   
-  def contact
+  def platformgamedemo
+  end
+
+  def spaceshootergamedemo
+  end
+  
+  def tictactoegamedemo
   end
 end
