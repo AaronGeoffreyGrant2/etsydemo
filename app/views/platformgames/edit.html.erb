@@ -1,6 +1,8 @@
 <h1>Editing Platformgame</h1>
 
+<% if current_user == @platformgame.user %>
 <%= render 'form', platformgame: @platformgame %>
+<% end %>
 
 <%= link_to 'Show', @platformgame %> |
 <%= link_to 'Back', platformgames_path %>

@@ -1,6 +1,9 @@
 class PlatformgamesController < ApplicationController
   before_action :set_platformgame, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:index, :show, :new, :edit, :create, :edit, :update, :destroy]
+  before_filter :check_user2, only: [:show]
+  before_filter :check_user3, only: [:edit, :update]
+  before_filter :check_user4, only: [:destroy]
 
   # GET /platformgames
   # GET /platformgames.json
@@ -72,5 +75,23 @@ class PlatformgamesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def platformgame_params
       params.require(:platformgame).permit(:user_id, :player, :playerdies, :playerbeatslevel, :coin, :lava, :enemy, :levelplatform, :levelbackground)
+    end
+
+    def check_user2
+      if current_user != @platformgame.user
+       redirect_to root_url, alert: "Sorry, you can not play this platformgame because it doesn't belong to you!"
+      end
+    end
+
+    def check_user3
+      if current_user != @platformgame.user
+       redirect_to root_url, alert: "Hey, you CAN'T change platformgames games that are not yours!"
+      end
+    end
+
+    def check_user4
+      if current_user != @platformgame.user
+       redirect_to root_url, alert: "The platformgame won't delete because it's not yours to delete!"
+      end
     end
 end

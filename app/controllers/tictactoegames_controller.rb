@@ -1,6 +1,9 @@
 class TictactoegamesController < ApplicationController
   before_action :set_tictactoegame, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:index, :show, :new, :edit, :create, :edit, :update, :destroy]
+  before_filter :check_user2, only: [:show]
+  before_filter :check_user3, only: [:edit, :update]
+  before_filter :check_user4, only: [:destroy]
 
   # GET /tictactoegames
   # GET /tictactoegames.json
@@ -72,5 +75,23 @@ class TictactoegamesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tictactoegame_params
       params.require(:tictactoegame).permit(:user_id, :xs, :os)
+    end
+
+    def check_user2
+      if current_user != @tictactoegame.user
+       redirect_to root_url, alert: "Sorry, you can not play this tictactoegame because it doesn't belong to you!"
+      end
+    end
+
+     def check_user3
+      if current_user != @tictactoegame.user
+       redirect_to root_url, alert: "Hey, you CAN'T change tictactoegames games that are not yours!"
+      end
+    end
+
+     def check_user4
+      if current_user != @tictactoegame.user
+       redirect_to root_url, alert: "The tictactoegame won't delete because it's not yours to delete!"
+      end
     end
 end

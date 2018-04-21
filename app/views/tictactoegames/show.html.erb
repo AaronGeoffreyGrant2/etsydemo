@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user == @tictactoegame.user %>
 <p>
   <strong>User:</strong>
   <%= render 'tictactoegame' %>
   <%= @tictactoegame.user %>
 </p>
+<% end %>
 
 <p>
   <strong>Xs:</strong>

@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user == @spaceshootergame.user %>
 <p>
   <strong>User:</strong>
   <%= render 'spaceshootergame' %>
   <%= @spaceshootergame.user %>
 </p>
+<% end %>
 
 <p>
   <strong>Ship:</strong>

@@ -1,6 +1,8 @@
 <h1>Editing Tictactoegame</h1>
 
+<% if current_user == @tictactoegame.user %>
 <%= render 'form', tictactoegame: @tictactoegame %>
+<% end %>
 
 <%= link_to 'Show', @tictactoegame %> |
 <%= link_to 'Back', tictactoegames_path %>
