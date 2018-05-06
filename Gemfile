@@ -39,6 +39,7 @@ gem 'devise'
 gem 'stripe', :git => 'http://github.com/stripe/stripe-ruby'
 gem 'carrierwave-base64'
 gem 'will_paginate', '~> 3.1.0'
+gem 'mailboxer'
 
 group :production do
   gem 'pg'
