@@ -1,0 +1,42 @@
+<%= form_for(platformdemo) do |f| %>
+  <% if platformdemo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(platformdemo.errors.count, "error") %> prohibited this platformdemo from being saved:</h2>
+
+      <ul>
+      <% platformdemo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Demo %>
+    <%= f.text_field :Demo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player %>
+     <%= collection_select(:platformdemo, :player, Listing.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :coin %>
+     <%= collection_select(:platformdemo, :coin, Listing.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lava %>
+     <%= collection_select(:platformdemo, :lava, Listing.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :enemy %>
+     <%= collection_select(:platformdemo, :enmey, Listing.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tictactoes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>User</th>
+      <th>Xs</th>
+      <th>Os</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tictactoes.each do |tictacto| %>
+      <tr>
+        <td><%= tictacto.Game %></td>
+        <td><%= tictacto.user %></td>
+        <td><%= tictacto.xs %></td>
+        <td><%= tictacto.os %></td>
+        <td><%= link_to 'Show', tictacto %></td>
+        <td><%= link_to 'Edit', edit_tictacto_path(tictacto) %></td>
+        <td><%= link_to 'Destroy', tictacto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tictacto', new_tictacto_path %>

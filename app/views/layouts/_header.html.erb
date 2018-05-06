@@ -20,18 +20,34 @@
       <ul class="nav navbar-nav navbar-right">
        <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller Account <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit/Delete Links For Your <%= current_user.name %> Account.<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Edit/Delete Your Work", seller_path %></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "Sales History", sales_path %></li>
+            <li><%= link_to "Purchase History", purchases_path %></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make Games That You Have To Pay For. <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Purchase History", purchases_path %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            <li><%= link_to "Make An Action/Adventure Game", platforms_path %></li>
+            <li><%= link_to "Make A Tic Tac Toe Game", tictactoes_path %></li>
+            <li><%= link_to "Make A Space Shooter Game", spaceshooters_path %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make Free Games. <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Make A Free Action/Adventure Game Demo", platformdemos_path %></li>
+          </ul>
+        </li>
+
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Out Link.<b class="caret"></b></a>
+          <ul class="dropdown-menu">
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>

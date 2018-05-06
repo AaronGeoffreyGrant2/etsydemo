@@ -1,0 +1,52 @@
+<%= form_for(platform) do |f| %>
+  <% if platform.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(platform.errors.count, "error") %> prohibited this platform from being saved:</h2>
+
+      <ul>
+      <% platform.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Game %>
+    <%= f.text_field :Game %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player %>
+     <%= collection_select(:platform, :player, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :coin %>
+     <%= collection_select(:platform, :coin, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lava %>
+     <%= collection_select(:platform, :lava, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :enemy_1 %>
+     <%= collection_select(:platform, :enemy_1, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :enemy_2 %>
+     <%= collection_select(:platform, :enemy_2, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :enemy_3 %>
+     <%= collection_select(:platform, :enemy_3, Order.all.where(buyer: current_user), :listing_id, :id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

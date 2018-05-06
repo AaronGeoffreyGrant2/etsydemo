@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423172149) do
+ActiveRecord::Schema.define(version: 20180506030823) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,52 @@ ActiveRecord::Schema.define(version: 20170423172149) do
     t.integer  "listing_id"
     t.integer  "buyer_id"
     t.integer  "seller_id"
+  end
+
+  create_table "platformdemos", force: :cascade do |t|
+    t.string   "Demo"
+    t.integer  "user_id"
+    t.string   "player"
+    t.string   "coin"
+    t.string   "lava"
+    t.string   "enmey"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_platformdemos_on_user_id"
+  end
+
+  create_table "platforms", force: :cascade do |t|
+    t.string   "Game"
+    t.integer  "user_id"
+    t.string   "player"
+    t.string   "coin"
+    t.string   "lava"
+    t.string   "enemy_1"
+    t.string   "enemy_2"
+    t.string   "enemy_3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_platforms_on_user_id"
+  end
+
+  create_table "spaceshooters", force: :cascade do |t|
+    t.string   "Game"
+    t.integer  "user_id"
+    t.string   "playership"
+    t.string   "enemyships"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_spaceshooters_on_user_id"
+  end
+
+  create_table "tictactoes", force: :cascade do |t|
+    t.string   "Game"
+    t.integer  "user_id"
+    t.string   "xs"
+    t.string   "os"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tictactoes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

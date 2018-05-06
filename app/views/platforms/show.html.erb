@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @platform.Game %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @platform.user %>
+</p>
+
+<% if current_user == @platform.user %>
+<%= render 'platformgame' %>
+<% end %>
+
+<p>
+  <strong>Player:</strong>
+  <%= @platform.player %>
+</p>
+
+<p>
+  <strong>Coin:</strong>
+  <%= @platform.coin %>
+</p>
+
+<p>
+  <strong>Lava:</strong>
+  <%= @platform.lava %>
+</p>
+
+<p>
+  <strong>Enemy 1:</strong>
+  <%= @platform.enemy_1 %>
+</p>
+
+<p>
+  <strong>Enemy 2:</strong>
+  <%= @platform.enemy_2 %>
+</p>
+
+<p>
+  <strong>Enemy 3:</strong>
+  <%= @platform.enemy_3 %>
+</p>
+
+<%= link_to 'Edit', edit_platform_path(@platform) %> |
+<%= link_to 'Back', platforms_path %>

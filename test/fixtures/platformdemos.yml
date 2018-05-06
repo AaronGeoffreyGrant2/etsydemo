@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Demo: MyString
+  user: one
+  player: MyString
+  coin: MyString
+  lava: MyString
+  enmey: MyString
+
+two:
+  Demo: MyString
+  user: two
+  player: MyString
+  coin: MyString
+  lava: MyString
+  enmey: MyString

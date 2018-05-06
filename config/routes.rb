@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :platformdemos
+  resources :spaceshooters
+  resources :tictactoes
+  resources :platforms
   devise_for :users
   resources :listings do
   	resources :orders, only: [:new, :create]

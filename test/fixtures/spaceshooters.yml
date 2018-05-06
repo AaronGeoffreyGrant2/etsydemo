@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Game: MyString
+  user: one
+  playership: MyString
+  enemyships: MyString
+
+two:
+  Game: MyString
+  user: two
+  playership: MyString
+  enemyships: MyString

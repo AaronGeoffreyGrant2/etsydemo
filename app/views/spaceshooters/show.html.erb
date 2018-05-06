@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @spaceshooter.Game %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @spaceshooter.user %>
+</p>
+
+<% if current_user == @spaceshooter.user %>
+<%= render 'spaceshootergame' %>
+<% end %>
+
+<p>
+  <strong>Playership:</strong>
+  <%= @spaceshooter.playership %>
+</p>
+
+<p>
+  <strong>Enemyships:</strong>
+  <%= @spaceshooter.enemyships %>
+</p>
+
+<%= link_to 'Edit', edit_spaceshooter_path(@spaceshooter) %> |
+<%= link_to 'Back', spaceshooters_path %>
