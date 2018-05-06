@@ -37,9 +37,9 @@ class ListingsController < ApplicationController
       Stripe.api_key = ENV["STRIPE_API_KEY"]
       token = params[:stripeToken]
 
-      recipient = Stripe::Account.create(
-        :country => "US",
-        :type => "custom",
+      recipient = Stripe::Recipient.create(
+        :name => current_user.name,
+        :type => "individual",
         :bank_account => token
         )
 
@@ -90,7 +90,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :price, :image, :post_to_facebook)
+      params.require(:listing).permit(:name, :description, :price, :image)
     end
 
     def check_user

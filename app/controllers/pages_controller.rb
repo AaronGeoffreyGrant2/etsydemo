@@ -1,14 +1,7 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
-  def dodegobstaclegamedemo
-  end
-  
-  def platformgamedemo
+  def about
   end
 
-  def spaceshootergamedemo
-  end
-  
-  def tictactoegamedemo
+  def contact
   end
 end

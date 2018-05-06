@@ -1,27 +1,12 @@
 Rails.application.routes.draw do
-  resources :platformgames
-  resources :tictactoegames
-  resources :spaceshootergames
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users
   resources :listings do
-    resources :orders, only: [:new, :create]
-  end
-  resources :conversations do
-    resources :messages
-
-    collection do
-      get :inbox
-      get :all, action: :index
-      get :sent
-      get :trash
-    end
+  	resources :orders, only: [:new, :create]
   end
 
   
-  get 'pages/dodgeobstaclegamedemo'
-  get 'pages/platformgamedemo'
-  get 'pages/spaceshootergamedemo'
-  get 'pages/tictactoegamedemo'
+  get 'pages/about'
+  get 'pages/contact'
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"

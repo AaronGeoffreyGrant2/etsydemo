@@ -8,68 +8,35 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Click Here To Buy Graphics</a>
+      <a class="navbar-brand" href="/">Click Here To Return To The Marketplace</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Privacy Info <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "My Privacy-Policy Docx", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-docx-english.docx" %></li>
-            <li><%= link_to "My Privacy-Policy PDF", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-pdf-english.pdf" %></li>
-            <li><%= link_to "My Privacy-Policy Txt", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-text-english.txt" %></li>
-          </ul>
-        </li>
-
+      <ul class="nav navbar-nav">
+        <li><%= link_to "About", pages_about_path %></li>
+        <li><%= link_to "Contact", pages_contact_path %></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
        <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit And/Or Delete Your Graphics And See Your List of Bought And Sold Graphics <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seller Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Edit/Delete Your Work", seller_path %></li>
             <li><%= link_to "Sales History", sales_path %></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
             <li><%= link_to "Purchase History", purchases_path %></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Free Game Demos <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Dodge Obstacle Game Demo", pages_dodgeobstaclegamedemo_path %></li>
-            <li><%= link_to "Platform Game Demo", pages_platformgamedemo_path %></li>
-            <li><%= link_to "Space Shooter Game Demo", pages_spaceshootergamedemo_path %></li>
-            <li><%= link_to "Tic Tac Toe Game Demo", pages_tictactoegamedemo_path %></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make Games (Note: Need To Either Or Buy Or Sell Gaphics) <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Make A Tic Tac Toe Game", tictactoegames_path %></li>
-            <li><%= link_to "Make A Space Shooter Game", spaceshootergames_path %></li>
-            <li><%= link_to "Make A Mario/Sonic Like Game", platformgames_path %></li>
-          </ul>
-        </li>
-
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Talk To Other Users <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "View Message Board", inbox_conversations_path %></li>   
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Out Of Your <%= current_user.name %> Account <b class="caret"></b></a>
-          <ul class="dropdown-menu">
+            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-      <% else %>
-        <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
-      <% end %>
-      <div id="fb-root"></div>
+
+                      <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -84,7 +51,11 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<% if current_user %>
-  <div>Hello <%= current_user.name %></div>
-  <%= image_tag(current_user.image) unless current_user.image.blank?  %>
-<% end %>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
