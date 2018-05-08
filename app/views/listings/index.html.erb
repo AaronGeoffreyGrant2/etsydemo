@@ -1,7 +1,12 @@
 <div class="jumbotron">
-  <h1>Design your own video game<br>
-  characters and make money selling them!</h1>
-  <h2>The only thing that you have to do is just signup and upload your images!</h2>
+  <% if user_signed_in? %>
+     <h1>Draw something using my built in drawing app!</h1><br>
+     <h2>Just click on "New Listing".</h2>
+  <% else %>
+    <h1>Design your own video game<br>
+    characters and make money selling them!</h1>
+    <h2>The only thing that you have to do is just signup</h2>
+  <% end %>
 </div>
 
 <div class="digg_pagination">
