@@ -1,3 +1,105 @@
+<% if user_signed_in? %>
+<h1>Important Information Below Please Read!!!</h1>
 
-<h1>Welcome to my online video game character marketplace!</h1>
-<p>Where you can design you own video game characters and sell them!</p>
+<p>Click <%= link_to "HERE", new_user_registration_path %> if to create another account if you mess up in entering your bank account info.</p>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">You need to fill into two capital letters in the country field when you fill out your bank account info. Click to view the two leter code for your country, click again to close.</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#unitedstates">Enter "US" if your country is United States</a>
+    <a href="#australia">Enter "AU" if your coutnry is Australia</a>
+    <a href="#austria">Enter "AT" if your country is Austria</a>
+    <a href="#belgium">Enter "BE" if your country is Belgium</a>
+    <a href="#canada">Enter "CA" if your country is Canada</a>
+    <a href="#denmark">Enter "DK" if your country is Denmark</a>
+    <a href="#finland">Enter "FI" if your country is Finland</a>
+    <a href="#france">Enter "FR" if your country is France</a>
+    <a href="#germany">Enter "DE" if your country is Germany</a>
+    <a href="#hongkong">Enter "HK" if your country is Hong Kong</a>
+    <a href="#ireland">Enter "IE" if your country is Ireland</a>
+    <a href="#italy">Enter "IT" if your country is Italy</a>
+    <a href="#japan">Enter "JP" if your country is Japan</a>
+    <a href="#luxenburg">Enter "LU" if your country is Luxenburg</a>
+    <a href="#mexico">Enter "MX" if your country is Mexico</a>
+    <a href="#netherlands">Enter "NL" if your country is Netherlands</a>
+    <a href="#newzealand">Enter "NZ" if your country is New Zealand</a>
+    <a href="#norway">Enter "NO" if your country is Norway</a>
+    <a href="#portugal">Enter "PT" if your country is Portugal</a>
+    <a href="#singapore">Enter "SG" if your country is Singapore</a>
+    <a href="#spain">Enter "ES" if your country is Spain</a>
+    <a href="#Sweden">Enter "SE" if your country is Sweden</a>
+    <a href="#Switzerland">Enter "CH" if your country is CH</a>
+    <a href="#unitedkingdom">Enter "GB" if your country is United Kingdom</a>
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<h1><p>Click <%= link_to 'HERE', new_listing_path %> here to continue to the drawing page.</p></h1>
+<% else %>
+<h1>Welcome to my online video game character marketplace!
+<p>Where you can design you own video game characters and sell them!</p></h1>
+<% end %>

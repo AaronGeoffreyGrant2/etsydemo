@@ -140,7 +140,7 @@
 
     // use base64 and store value to input to save image to database
   document.getElementById('create-drawing').addEventListener('click', function(){
-    var dataUrl = canvas.toDataURL("image/jpeg");
+    var dataUrl = canvas.toDataURL("image/png");
     var dataImg = document.createElement('img');
     dataImg.src = dataUrl;
     var drawingField = document.createElement('div');
@@ -205,8 +205,6 @@
     <br>
     <h1>Bank Account Information</h1>
 
-    <h2>Enter "US" of your country is United States</h2>
-
     <div class="form-group">
       <%= label_tag :country %>
       <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
@@ -219,6 +217,7 @@
       <%= label_tag :account_number %>
       <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
     </div>
+
   <% end %>
 
   <div class="form-group">
