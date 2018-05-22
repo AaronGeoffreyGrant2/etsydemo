@@ -513,6 +513,10 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
+function myFunction() {
+    location.reload();
+}
+
 function runLevel(level, Display) {
   let display = new Display(document.body, level);
   let state = State.start(level);
@@ -663,4 +667,6 @@ function runLevel(level, Display) {
   }
   runGame(GAME_LEVELS, DOMDisplay);
 </script>
+<p><button onclick="myFunction()">Start/Restart Game</button></p>
+<%= link_to 'Back', listings_path, class: "btn btn-link" %>
 </body>

@@ -384,6 +384,10 @@ function runLevel(level, Display) {
   });
 }
 
+function myFunction() {
+    location.reload();
+}
+
 async function runGame(plans, Display) {
   for (let level = 0; level < plans.length;) {
     let status = await runLevel(new Level(plans[level]),
@@ -443,4 +447,6 @@ async function runGame(plans, Display) {
 ................................................................................
 `), DOMDisplay);
   </script>
+  <p><button onclick="myFunction()">Start/Restart Game</button></p>
+  <%= link_to 'Back', listings_path, class: "btn btn-link" %>
 </body>
