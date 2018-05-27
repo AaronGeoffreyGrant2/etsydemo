@@ -1,0 +1,8 @@
+<h1>Editing Spaceshootergame</h1>
+
+<% if current_user == @spaceshootergame.user %>
+<%= render 'form', spaceshootergame: @spaceshootergame %>
+<% end %>
+
+<%= link_to 'Show', @spaceshootergame %> |
+<%= link_to 'Back', spaceshootergames_path %>

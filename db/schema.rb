@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180506214554) do
+ActiveRecord::Schema.define(version: 20180312011500) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180506214554) do
     t.datetime "image_updated_at"
     t.string   "image"
     t.integer  "user_id"
+    t.boolean  "post_to_facebook"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -91,50 +92,51 @@ ActiveRecord::Schema.define(version: 20180506214554) do
     t.integer  "seller_id"
   end
 
-  create_table "platformdemos", force: :cascade do |t|
-    t.string   "Demo"
+  create_table "platformgames", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "player"
+    t.string   "playerdies"
+    t.string   "playerbeatslevel"
     t.string   "coin"
     t.string   "lava"
-    t.string   "enmey"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_platformdemos_on_user_id"
+    t.string   "enemy"
+    t.string   "levelplatform"
+    t.string   "levelbackground"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_platformgames_on_user_id"
   end
 
-  create_table "platforms", force: :cascade do |t|
-    t.string   "Game"
+  create_table "services", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "player"
-    t.string   "coin"
-    t.string   "lava"
-    t.string   "enemy_1"
-    t.string   "enemy_2"
-    t.string   "enemy_3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_platforms_on_user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
+    t.string   "access_token_secret"
+    t.string   "refresh_token"
+    t.datetime "expires_at"
+    t.text     "auth"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
-  create_table "spaceshooters", force: :cascade do |t|
-    t.string   "Game"
+  create_table "spaceshootergames", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "playership"
-    t.string   "enemyships"
+    t.string   "ship"
+    t.string   "enemy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_spaceshooters_on_user_id"
+    t.index ["user_id"], name: "index_spaceshootergames_on_user_id"
   end
 
-  create_table "tictactoes", force: :cascade do |t|
-    t.string   "Game"
+  create_table "tictactoegames", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "xs"
     t.string   "os"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tictactoes_on_user_id"
+    t.index ["user_id"], name: "index_tictactoegames_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -152,6 +154,8 @@ ActiveRecord::Schema.define(version: 20180506214554) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "recipient"
+    t.string   "access_token"
+    t.text     "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

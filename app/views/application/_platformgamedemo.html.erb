@@ -1,18 +1,18 @@
 <!doctype html>
 
-
+<button onclick="myFunction()">Start/Restart Game</button>
 
 <style>
 	.background    { background: rgb(52, 166, 251);
                  table-layout: fixed;
                  border-spacing: 0;              }
 	.background td { padding: 0;                     }
-	.lava          { background-image: url("http://localhost:3000/uploads/listing/image/<%= @platformdemo.lava %>/thumb_something.jpg"); }
+	.lava          { background: rgb(255, 100, 100); }
 	.wall          { background: white;              }
 
 	.actor  { position: absolute;            }
-	.coin   { background-image: url("http://localhost:3000/uploads/listing/image/<%= @platformdemo.coin %>/thumb_something.jpg"); }
-	.player { background-image: url("http://localhost:3000/uploads/listing/image/<%= @platformdemo.player %>/thumb_something.jpg");    
+	.coin   { background: rgb(241, 229, 89); }
+	.player { background-image: url("<%= current_user.image %>");    
   }
 
 	.lost .player {
@@ -28,7 +28,7 @@
   		max-height: 450px;
   		position: relative;
 	}
-  	.monster { background-image: url("http://localhost:3000/uploads/listing/image/<%= @platformdemo.enmey %>/thumb_something.jpg"); }
+  	.monster { background: purple }
 </style>
 
 <body>
@@ -362,6 +362,10 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
+function myFunction() {
+    location.reload();
+}
+
 function runLevel(level, Display) {
   let display = new Display(document.body, level);
   let state = State.start(level);
@@ -382,10 +386,6 @@ function runLevel(level, Display) {
       }
     });
   });
-}
-
-function myFunction() {
-    location.reload();
 }
 
 async function runGame(plans, Display) {
@@ -447,6 +447,4 @@ async function runGame(plans, Display) {
 ................................................................................
 `), DOMDisplay);
   </script>
-  <p><button onclick="myFunction()">Start/Restart Game</button></p>
-  <%= link_to 'Back', listings_path, class: "btn btn-link" %>
 </body>

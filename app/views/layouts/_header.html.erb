@@ -8,62 +8,62 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Click Here To Return To The Marketplace</a>
+      <a class="navbar-brand" href="/">Click Here To Buy Graphics</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Click Here For Help", pages_about_path %></li>
-        <li><%= link_to "Click Here To Contact Me", pages_contact_path %></li>
-      </ul>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help/ Questions Or Comments/ Privacy Info <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Contact Other Users", inbox_conversations_path %></li>
+            <li><%= link_to "Contact Me", "https://vast-spire-54623.herokuapp.com/comments/new" %></li>
+            <li><%= link_to "Help", "https://vast-spire-54623.herokuapp.com" %></li>   
+            <li><%= link_to "My Privacy-Policy Docx", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-docx-english.docx" %></li>
+            <li><%= link_to "My Privacy-Policy PDF", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-pdf-english.pdf" %></li>
+            <li><%= link_to "My Privacy-Policy Txt", "https://s3-us-west-2.amazonaws.com/mbdappbucket/termsfeed-privacy-policy-text-english.txt" %></li>
+          </ul>
+        </li>
+
       <ul class="nav navbar-nav navbar-right">
        <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit/Delete Links For Your <%= current_user.name %> Account.<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit And/Or Delete Your Graphics/ List of Bought And Sold Graphics <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Edit/Delete Your Work", seller_path %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
             <li><%= link_to "Sales History", sales_path %></li>
             <li><%= link_to "Purchase History", purchases_path %></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make Games That You Have To Pay For. <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Game Demos <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Make An Action/Adventure Game Using Images That Your Buy From The Marketplace", platforms_path %></li>
-            <li><%= link_to "Make A Tic Tac Toe Game Using Images That Your Buy From The Marketplace", tictactoes_path %></li>
-            <li><%= link_to "Make A Space Shooter Game Using Images That Your Buy From The Marketplace", spaceshooters_path %></li>
+            <li><%= link_to "Dodge Obstacle Game Demo", pages_dodgeobstaclegamedemo_path %></li>
+            <li><%= link_to "Platform Game Demo", pages_platformgamedemo_path %></li>
+            <li><%= link_to "Space Shooter Game Demo", pages_spaceshootergamedemo_path %></li>
+            <li><%= link_to "Tic Tac Toe Game Demo", pages_tictactoegamedemo_path %></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Free Game Demos. <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Make Games <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Make An Action/Adventure Game Demo With Any Image From The Marketplace For Free", platformdemos_path %></li>
-            <li><%= link_to "Try The Space Shooter Game Demo", pages_spaceshootergamedemo_path %></li>
-            <li><%= link_to "Try The Tic Tac Toe Game Demo", pages_tictactoegamedemo_path %></li>
+            <li><%= link_to "Make A Tic Tac Toe Game", tictactoegames_path %></li>
+            <li><%= link_to "Make A Space Shooter Game", spaceshootergames_path %></li>
+            <li><%= link_to "Make A Mario/Sonic Like Game", platformgames_path %></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Send Messages To Other Users<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "View Message Board", inbox_conversations_path %></li>   
-          </ul>
-        </li>
-
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Out Link.<b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign Out Of Your <%= current_user.name %> Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
-
       <% else %>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
       <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
@@ -86,4 +86,9 @@
 
 <div class="fb-share-button" data-href="http://aarongeoffreygrantetsydemoapp.herokuapp.com/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Faarongeoffreygrantetsydemoapp.herokuapp.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
 </div>
+<% end %>
+
+<% if current_user %>
+  <div>Hello <%= current_user.name %></div>
+  <%= image_tag(current_user.image) unless current_user.image.blank?  %>
 <% end %>

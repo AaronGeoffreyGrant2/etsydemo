@@ -39,10 +39,12 @@ gem 'devise'
 gem 'stripe', :git => 'http://github.com/stripe/stripe-ruby'
 gem 'carrierwave-base64'
 gem 'will_paginate', '~> 3.1.0'
+gem 'omniauth-facebook'
+gem 'koala'
 gem 'mailboxer'
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.21'
   gem 'rails_12factor'
 end
 

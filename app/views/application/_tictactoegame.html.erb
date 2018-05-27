@@ -1,4 +1,3 @@
-<%= link_to 'Back', listings_path, class: "btn btn-link" %>
 <!doctype html>
 <html>
 <head>
@@ -307,10 +306,10 @@ $('#reset-button').on('click', function() {
       background-color: #999;
     }
     .O-play {
-      background-image: url("http://localhost:3000/uploads/listing/image/<%= @tictacto.os %>/thumb_something.jpg");  
+      background-image: url("http://localhost:3000/uploads/listing/image/<%= @tictactoegame.os %>/thumb_something.jpg");  
     }
     .X-play {
-      background-image: url("http://localhost:3000/uploads/listing/image/<%= @tictacto.xs %>/thumb_something.jpg");
+      background-image: url("http://localhost:3000/uploads/listing/image/<%= @tictactoegame.xs %>/thumb_something.jpg");
     }
   </style>
 </head>

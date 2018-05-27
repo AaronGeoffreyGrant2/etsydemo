@@ -2,7 +2,7 @@
 <head>
 <style>
 #hero {
-  background-image: url("http://localhost:3000/uploads/listing/image/<%= @spaceshooter.playership %>/thumb_something.jpg"); 
+  background-image: url("http://localhost:3000/uploads/listing/image/<%= @spaceshootergame.ship %>/thumb_something.jpg"); 
   width: 20px;
   height: 20px;
   position: absolute;
@@ -22,7 +22,7 @@
   position: absolute;
 }
 .enemy {
-  background-image: url("http://localhost:3000/uploads/listing/image/<%= @spaceshooter.enemyships %>/thumb_something.jpg");
+  background-image: url("http://localhost:3000/uploads/listing/image/<%= @spaceshootergame.enemy %>/thumb_something.jpg");
   width: 35px;
   height: 35px;
   position: absolute;
@@ -229,10 +229,6 @@ function loop() {
     iterations++;
   }
   setTimeout('loop();', 2);
-}
-
-function myFunction() {
-    location.reload();
 }
 
 document.onkeydown = function(evt) {

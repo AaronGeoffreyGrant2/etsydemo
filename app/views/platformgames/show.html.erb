@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user == @platformgame.user %>
+<p>
+  <strong>User:</strong>
+  <%= render 'platformgame' %>
+  <%= @platformgame.user %>
+</p>
+<% end %>
+
+<p>
+  <strong>Player:</strong>
+  <%= @platformgame.player %>
+</p>
+
+<p>
+  <strong>Playerdies:</strong>
+  <%= @platformgame.playerdies %>
+</p>
+
+<p>
+  <strong>Playerbeatslevel:</strong>
+  <%= @platformgame.playerbeatslevel %>
+</p>
+
+<p>
+  <strong>Coin:</strong>
+  <%= @platformgame.coin %>
+</p>
+
+<p>
+  <strong>Lava:</strong>
+  <%= @platformgame.lava %>
+</p>
+
+<p>
+  <strong>Enemy:</strong>
+  <%= @platformgame.enemy %>
+</p>
+
+<p>
+  <strong>Levelplatform:</strong>
+  <%= @platformgame.levelplatform %>
+</p>
+
+<p>
+  <strong>Levelbackground:</strong>
+  <%= @platformgame.levelbackground %>
+</p>
+
+<%= link_to 'Edit', edit_platformgame_path(@platformgame) %> |
+<%= link_to 'Back', platformgames_path %>

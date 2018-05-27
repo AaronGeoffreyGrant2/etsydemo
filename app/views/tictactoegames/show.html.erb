@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user == @tictactoegame.user %>
+<p>
+  <strong>User:</strong>
+  <%= render 'tictactoegame' %>
+  <%= @tictactoegame.user %>
+</p>
+<% end %>
+
+<p>
+  <strong>Xs:</strong>
+  <%= @tictactoegame.xs %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @tictactoegame.os %>
+</p>
+
+<%= link_to 'Edit', edit_tictactoegame_path(@tictactoegame) %> |
+<%= link_to 'Back', tictactoegames_path %>

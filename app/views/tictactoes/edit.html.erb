@@ -1,8 +1,0 @@
-<h1>Editing Tictacto</h1>
-
-<% if current_user == @tictacto.user %>
-<%= render 'form', tictacto: @tictacto %>
-<% end %>
-
-<%= link_to 'Show', @tictacto %> |
-<%= link_to 'Back', tictactoes_path %>

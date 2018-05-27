@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :platformdemos
-  resources :spaceshooters
-  resources :tictactoes
-  resources :platforms
-  devise_for :users
+  resources :platformgames
+  resources :tictactoegames
+  resources :spaceshootergames
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :listings do
-  	resources :orders, only: [:new, :create]
+    resources :orders, only: [:new, :create]
   end
   resources :conversations do
     resources :messages
@@ -17,9 +16,10 @@ Rails.application.routes.draw do
       get :trash
     end
   end
+
   
-  get 'pages/about'
-  get 'pages/contact'
+  get 'pages/dodgeobstaclegamedemo'
+  get 'pages/platformgamedemo'
   get 'pages/spaceshootergamedemo'
   get 'pages/tictactoegamedemo'
   get 'seller' => "listings#seller"

@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <% if user_signed_in? %>
      <h1>Draw something using my built in drawing app!</h1><br>
-     <h2>Just click on "Create New Game Artwork".</h2>
+     <h2>Just click on "New Listing".</h2>
   <% else %>
     <h1>Design your own video game<br>
     characters and make money selling them!</h1>
@@ -30,7 +30,8 @@
           <div class="caption">
             <h3><%= listing.name %></h3>
             <p><%= number_to_currency(listing.price) %></p>
-            <p><% "Sold by #{listing.user.name}" %></p>
+            <p><%= "Sold by #{listing.user.name}" %></p>
+            <p><%= image_tag(listing.user.image) %></p>
           </div>
       </div>  
       </div>
@@ -41,5 +42,5 @@
 <br>
 
 <% if user_signed_in? %>
-<%= link_to 'Create New Game Artwork', new_listing_path, class: "btn btn-link", data: { no_turbolink: true } %>
+<%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true } %>
 <% end %>
