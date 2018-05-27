@@ -309,7 +309,7 @@ $('#reset-button').on('click', function() {
       background-color: #cccccc;  
     }
     .X-play {
-      background-color: #cccccc;  
+      background-image: url("<%= current_user.image %>"); 
     }
   </style>
 </head>
@@ -318,7 +318,7 @@ $('#reset-button').on('click', function() {
 
   <div class="container">
 
-    <h1>Click On Buy Graphics To Buy And Sell Images Instead Of Just Grey Squares.</h1>
+    <h1>Tic Tac Toe</h1>
 
     <p>A simple game of tic tac toe to play<br/>
       You play as <span class="red">X</span> and the computer plays as <span class="blue">O</span><br/>
