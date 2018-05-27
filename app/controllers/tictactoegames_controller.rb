@@ -8,7 +8,7 @@ class TictactoegamesController < ApplicationController
   # GET /tictactoegames
   # GET /tictactoegames.json
   def index
-    @tictactoegames = Tictactoegame.where(user: current_user).order("created_at DESC")
+    @tictactoegames = Tictactoegame.all.order("created_at DESC")
   end
 
   # GET /tictactoegames/1
@@ -79,7 +79,7 @@ class TictactoegamesController < ApplicationController
 
     def check_user2
       if current_user != @tictactoegame.user
-       redirect_to root_url, alert: "Sorry, you can not play this tictactoegame because it doesn't belong to you!"
+       redirect_to root_url, alert: "You can only play the tictactoegames that you make! To make one click on create new tictactoegame, to make a tictactoegame with the graphics that you buy in the marketplace."
       end
     end
 

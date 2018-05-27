@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
       charge = Stripe::Charge.create(
         :amount => (@listing.price * 100).floor,
         :currency => "usd",
-        :source => token
+        :card => token
         )
     rescue Stripe::CardError => e
       flash[:danger] = e.message
@@ -44,12 +44,13 @@ class OrdersController < ApplicationController
     transfer = Stripe::Transfer.create(
       :amount => (@listing.price * 95).floor,
       :currency => "usd",
+      :method => "instant",
       :destination => @seller.recipient 
       )
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to root_url, notice: "Thanks for ordering!" } 
+        format.html { redirect_to root_url, notice: "Thanks for ordering! You can use the graphic that you just bought to make games." } 
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render action: 'new' }

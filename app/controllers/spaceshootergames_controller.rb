@@ -8,7 +8,7 @@ class SpaceshootergamesController < ApplicationController
   # GET /spaceshootergames
   # GET /spaceshootergames.json
   def index
-    @spaceshootergames = Spaceshootergame.where(user: current_user).order("created_at DESC")
+    @spaceshootergames = Spaceshootergame.all.order("created_at DESC")
   end
 
   # GET /spaceshootergames/1
@@ -79,7 +79,7 @@ class SpaceshootergamesController < ApplicationController
 
     def check_user2
       if current_user != @spaceshootergame.user
-       redirect_to root_url, alert: "Sorry, you can not play this spaceshootergame because it doesn't belong to you!"
+       redirect_to root_url, alert: "You can only play the spaceshootergames that you make! To make one click on create new spaceshootergame, to make a spaceshootergame with the graphics that you buy in the marketplace."
       end
     end
 

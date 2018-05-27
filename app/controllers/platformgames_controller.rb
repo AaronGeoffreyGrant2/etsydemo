@@ -8,7 +8,7 @@ class PlatformgamesController < ApplicationController
   # GET /platformgames
   # GET /platformgames.json
   def index
-    @platformgames = Platformgame.where(user: current_user).order("created_at DESC")
+    @platformgames = Platformgame.all.order("created_at DESC")
   end
 
   # GET /platformgames/1
@@ -79,7 +79,7 @@ class PlatformgamesController < ApplicationController
 
     def check_user2
       if current_user != @platformgame.user
-       redirect_to root_url, alert: "Sorry, you can not play this platformgame because it doesn't belong to you!"
+       redirect_to root_url, alert: "You can only play the platformgames that you make! To make one click on create new platformgame, to make a platformgame with the graphics that you buy in the marketplace."
       end
     end
 
