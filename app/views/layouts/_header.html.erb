@@ -90,4 +90,5 @@
 
 <% if current_user %>
   <div>Hello <%= current_user.name %></div>
+  <div><%= image_tag(current_user.image) %></div>
 <% end %>
