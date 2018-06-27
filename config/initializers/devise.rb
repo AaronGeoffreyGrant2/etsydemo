@@ -275,6 +275,6 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_app_secret"],
-  scope: 'email, public_profile, user_photos'
+  scope: 'email, public_profile'
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 end
