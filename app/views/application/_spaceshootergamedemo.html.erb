@@ -42,6 +42,41 @@
   top: 600px;
   visibility: hidden;
 }
+#gamecontrols {
+  color: #ff0000;
+  font-size: 20px;
+  position: absolute;
+  left: 60px;
+  top: 600px;
+}
+#gamecontrols2 {
+  color: #ff0000;
+  font-size: 20px;
+  position: absolute;
+  left: 60px;
+  top: 550px;
+}
+#gamecontrols3 {
+  color: #ff0000;
+  font-size: 20px;
+  position: absolute;
+  left: 60px;
+  top: 650px;
+}
+#gamecontrols4 {
+  color: #ff0000;
+  font-size: 20px;
+  position: absolute;
+  left: 10px;
+  top: 600px;
+}
+#gamecontrols5 {
+  color: #ff0000;
+  font-size: 20px;
+  position: absolute;
+  left: 170px;
+  top: 600px;
+}
 </style>
 </head>
 <body>
@@ -49,7 +84,12 @@
 <div id="hero"></div>
 <div id="laser"></div>
 <div id="score"></div>
-<div id="gameover">GAME OVER<a onClick="window.location.reload()">Click Here To Play Again</a><%= link_to 'Click Here If Done Playing', listings_path, class: "btn btn-link" %>Hint: use the arrow keys to move and the spacebar to shoot.</div>
+<div id="gameover">GAME OVER<a onClick="window.location.reload()">Click Here To Play Again</a><%= link_to 'Click Here If Done Playing', listings_path, class: "btn btn-link" %>You have to repeatly press the direction buttons to move. If you're useing desktop you can just use the arrow keys to move and the spacebar to shoot. It works alot better. </div>
+<div id="gamecontrols"><button onmousedown="laser.x = hero.x + 9; laser.y = hero.y - laser.h;" onmouseup="">Shoot Laser</button></div>
+<div id="gamecontrols2"><button onmousedown="hero.y -= HERO_MOVEMENT;" onmouseup="">Up</button></div>
+<div id="gamecontrols3"><button onmousedown="hero.y += HERO_MOVEMENT;" onmouseup="">Down</button></div>
+<div id="gamecontrols4"><button onmousedown="hero.x -= HERO_MOVEMENT;" onmouseup="">Left</button></div>
+<div id="gamecontrols5"><button onmousedown="hero.x += HERO_MOVEMENT;" onmouseup="">Right</button></div>
 <script>
 
 var LEFT_KEY = 37;

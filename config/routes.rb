@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :listings do
     resources :orders, only: [:new, :create]
   end
+  resources :users
   resources :conversations do
     resources :messages
 

@@ -18,8 +18,12 @@
 
 <%= form_tag listings_path, method: :get do %>
   <%= text_field_tag :name, "" %>
-  <%= submit_tag 'Click Here to Search and Click Again to View All Listings' %>
+  <div class="dropdown"><button class="dropbtn"><%= submit_tag 'Search By Name Of Listing' %></button></div>
 <% end %>
+
+<div class="dropdown">
+  <button class="dropbtn"><%= link_to 'Search By User', users_path, class: "dropdown", data: { no_turbolink: true } %></button>
+</div>
 
 <div class="center">
   <div class="row">

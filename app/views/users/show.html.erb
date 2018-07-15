@@ -1,0 +1,16 @@
+<h1>All Artwork Made By: <%= @user.name %></h1>
+
+<div class="center">
+  <div class="row">
+    <% @user_listings.each do |listing| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+        <%= link_to image_tag(listing.image.url), listing_path(listing) %>
+          <div class="caption">
+            <h3><%= listing.name %></h3>
+          </div>
+      </div>  
+      </div>
+    <% end %>
+</div>
+</div>
