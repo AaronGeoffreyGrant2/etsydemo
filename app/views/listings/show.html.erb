@@ -20,3 +20,6 @@
 	<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
 <% end %>
 <%= link_to 'Back', listings_path, class: "btn btn-link" %>
+<div class="dropdown">
+  <button class="dropbtn"><h2><%= link_to 'Click Here To View More Graphics From This User', user_path(@listing.user) %></h2></button>
+</div>
