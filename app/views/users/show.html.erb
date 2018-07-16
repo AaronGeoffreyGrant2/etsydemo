@@ -1,5 +1,4 @@
-<h1>All Artwork Made By: <%= @user.name %></h1>
-
+<h1>All Artwork Made By: <%= @user.name %><%= image_tag @user.image + "?type=large" %></h1>
 <div class="center">
   <div class="row">
     <% @user_listings.each do |listing| %>
@@ -14,3 +13,5 @@
     <% end %>
 </div>
 </div>
+
+<%= link_to 'Back', users_path, class: "btn btn-link" %>
