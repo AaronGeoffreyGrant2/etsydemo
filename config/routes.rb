@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     end
   end
 
-  
-  get 'pages/dodgeobstaclegamedemo'
   get 'pages/platformgamedemo'
   get 'pages/spaceshootergamedemo'
   get 'pages/tictactoegamedemo'
