@@ -23,3 +23,11 @@
 <div class="dropdown">
   <button class="dropbtn"><h2><%= link_to "Click Here To See More Of #{@listing.user.name}'s Graphics.", user_path(@listing.user) %></h2></button>
 </div>
+
+<br>
+
+<div class="dropdown">
+  <% unless current_user == @listing.user %>
+  <button class="dropbtn"><h2><%= link_to "Click Here Send #{@listing.user.name} A Message", new_conversation_path(to: @listing.user.id) %></h2></button>
+  <% end %>
+</div>

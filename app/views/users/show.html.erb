@@ -15,3 +15,9 @@
 </div>
 
 <%= link_to 'Back', users_path, class: "btn btn-link" %>
+
+<div class="dropdown">
+  <% unless current_user == @user %>
+  <button class="dropbtn"><h2><%= link_to "Click Here Send #{@user.name} A Message", new_conversation_path(to: @user.id) %></h2></button>
+  <% end %>
+</div>
